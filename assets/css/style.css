@@ -1211,20 +1211,42 @@ section {
 
 
 /* Profile */
+/* Profile */
 
 .profile-container {
-  padding: 10px; /* Add padding around the image */
-  background-color: #f1f1f9; /* Light background color */
-  background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Gradient background for 3D effect */
-  border: 2px solid #ddd; /* Light border */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.3), -8px -8px 16px rgba(255, 255, 255, 0.5); /* Enhanced shadow for 3D effect */
+  position: relative; /* Ensure the container can position the pseudo-element */
   display: inline-block; /* Ensure container only wraps the image */
   margin: 20px 0; /* Margin around the container */
 }
 
-.profile-container img {
- /* Convert image to black and white */
-  border-radius: 4px; /* Preserve existing border radius */
+.profile-container::before {
+  content: ''; /* Required for pseudo-element */
+  position: absolute; /* Position relative to the container */
+  top: 0; left: 0; right: 0; bottom: 0; /* Cover the entire container */
+  border-radius: 4px; /* Match the border-radius of the image */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Inner shadow for fade effect */
+  pointer-events: none; /* Allow mouse events to pass through */
+  transition: opacity 0.3s ease; /* Smooth transition for fade effect */
+  opacity: 1; /* Start fully opaque */
 }
+
+.profile-container:hover::before {
+  opacity: 0; /* Fade out on hover */
+}
+
+.profile-container:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.profile-container img {
+  display: block; /* Remove default inline spacing */
+  border-radius: 4px; /* Preserve existing border radius */
+  filter: grayscale(100%); /* Convert image to black and white */
+  transition: filter 0.3s ease; /* Smooth transition for filter */
+}
+
+.profile-container img:hover {
+  filter: grayscale(0); /* Remove grayscale on hover */
+}
+
 
