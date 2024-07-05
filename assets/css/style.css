@@ -1207,3 +1207,24 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
+
+
+/* Profile */
+
+.profile-container {
+  padding: 10px; /* Add padding around the image */
+  background-color: #f1f1f9; /* Light background color */
+  background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Gradient background for 3D effect */
+  border: 2px solid #ddd; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.3), -8px -8px 16px rgba(255, 255, 255, 0.5); /* Enhanced shadow for 3D effect */
+  display: inline-block; /* Ensure container only wraps the image */
+  margin: 20px 0; /* Margin around the container */
+}
+
+.profile-container img {
+ /* Convert image to black and white */
+  border-radius: 4px; /* Preserve existing border radius */
+}
+
