@@ -267,4 +267,21 @@
    */
   new PureCounter();
 
+  /**
+   * Age updates every year on 11 January
+   */
+  const ageEl = document.getElementById('age');
+  if (ageEl) {
+    const birthDate = new Date(2001, 0, 11);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const hasHadBirthdayThisYear =
+      today.getMonth() > birthDate.getMonth() ||
+      (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+    if (!hasHadBirthdayThisYear) {
+      age -= 1;
+    }
+    ageEl.textContent = String(age);
+  }
+
 })()
